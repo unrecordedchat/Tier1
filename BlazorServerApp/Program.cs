@@ -1,6 +1,7 @@
 using BlazorServerApp.Components;
 using Grpc.Net.Client;
 using GrpcService;
+using GrpcService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,12 +11,10 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddSingleton(provider =>
 {
-    var channel = GrpcChannel.ForAddress("https://localhost:7268"); // Replace with your gRPC server URL
+    var channel = GrpcChannel.ForAddress("https://localhost:7268"); 
     return channel;
 });
-
-// Register GreeterClient, which now needs a GrpcChannel
-builder.Services.AddSingleton<GreeterClient>();
+builder.Services.AddSingleton<UserClient>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

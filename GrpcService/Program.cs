@@ -2,14 +2,15 @@
 
 using Grpc.Net.Client;
 using GrpcService;
+using GrpcService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddSingleton<GrpcChannel>();
-builder.Services.AddSingleton(services => GrpcChannel.ForAddress("https://localhost:7268"));
-builder.Services.AddScoped<GreeterClient>();
+builder.Services.AddSingleton(services => GrpcChannel.ForAddress("https://localhost:5195"));
+builder.Services.AddScoped<UserClient>();
 
 var app = builder.Build();
 

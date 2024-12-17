@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+import "google/protobuf/empty.proto";
+
+message UserEntity {
+  string id = 1;
+  string username = 2;
+  string email = 3;
+  string passHash = 4;
+}
+
+message UsernameRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message EmailRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message UpdateUsernameRequest {
+  string id = 1;
+  string username = 2;
+}
+
+message UpdateEmailRequest {
+  string id = 1;
+  string email = 2;
+}
+
+message UpdatePasswordRequest {
+  string id = 1;
+  string password = 2;
+}
+
+message UserIdRequest {
+  string id = 1;
+}
+
+service UserService {
+  rpc CreateUser(UserEntity) returns (google.protobuf.Empty);
+  rpc GetUserByUsername(UsernameRequest) returns (UserEntity);
+  rpc GetUserByEmail(EmailRequest) returns (UserEntity);
+  rpc LoginUser(UsernameRequest) returns (google.protobuf.Empty);
+  rpc LoginUserByEmail(EmailRequest) returns (google.protobuf.Empty);
+  rpc UpdateUsername(UpdateUsernameRequest) returns (google.protobuf.Empty);
+  rpc UpdateEmail(UpdateEmailRequest) returns (google.protobuf.Empty);
+  rpc DeleteUser(UserIdRequest) returns (google.protobuf.Empty);
+  rpc UpdatePassword(UpdatePasswordRequest) returns (google.protobuf.Empty);
+}

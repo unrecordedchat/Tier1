@@ -1,5 +1,7 @@
 ﻿@page "/counter"
-@inject GrpcService.GreeterClient GreeterClient;
+@using GrpcService
+@using GrpcService.Services
+@inject UserClient UserClient
 @rendermode InteractiveServer
 
 <PageTitle>Counter</PageTitle>
@@ -13,11 +15,17 @@
 @code {
     private int currentCount = 0;
 
-    
-    private void IncrementCount()
+    private async Task IncrementCount()
     {
-        var helloAsync = GreeterClient.SayHelloAsync("ABC");
-        Console.WriteLine(helloAsync);
-    }
+        var user = new UserEntity
+        {
+            // Initialize the UserEntity properties as needed
+            Username = "User",
+            Email = "test",
+            PassHash = "test"
+        };
 
+        await UserClient.CreateUserAsync(user);
+        currentCount++;
+    }
 }

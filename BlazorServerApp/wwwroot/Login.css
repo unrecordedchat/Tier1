@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.heading {
+    font-size: 32px;
+    color: #2ecc71;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.title {
+    color: #555;
+    font-weight: 400;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+.login, .signup {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    color: #555;
+}
+
+.slider {
+    height: 50px;
+    width: 150px;
+    background: linear-gradient(to right, #ff9a76, #ffce84);
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    border-radius: 25px;
+}
+
+.form-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.login-box, .signup-box {
+    padding: 30px 20px;
+}
+
+.ele {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+.clkbtn {
+    background: linear-gradient(to right, #ff9a76, #ffce84);
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+}
+/* General Page Styling /
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/ Welcome Message /
+.welcome-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.welcome-header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.highlight {
+    color: #2ecc71;
+}
+
+/ Container Styling /
+.container {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/ Buttons Row /
+.btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+.login, .signup {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+}
+
+.login:hover, .signup:hover {
+    color: #2ecc71;
+}
+
+/ Slider for Toggle /
+.slider {
+    height: 50px;
+    width: 50%;
+    background-color: #2ecc71;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    border-radius: 25px;
+    transition: all 0.5s ease;
+}
+
+/ Forms Section */
+.form-section {
+    display: flex;
+    width: 200%;
+    transition: transform 0.5s ease;
+}
+
+.login-box, .signup-box {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ele {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.clkbtn {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clkbtn:hover {
+    background-color: #27ae60;
+}

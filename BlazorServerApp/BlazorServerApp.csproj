@@ -7,7 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain.csproj" />
       <ProjectReference Include="..\GrpcService\GrpcService.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\Login.css" />
     </ItemGroup>
 
 </Project>

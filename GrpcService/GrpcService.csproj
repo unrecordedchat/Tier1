@@ -7,16 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Protobuf Include="Protos\greet.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Client"/>
+        <Protobuf Include="Protos\user.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Client,Server"/>
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Google.Protobuf" Version="3.29.1" />
         <PackageReference Include="Grpc.AspNetCore" Version="2.57.0"/>
     </ItemGroup>
 
     <ItemGroup>
         <Folder Include="GeneratedFiles\"/>
-        <Folder Include="Services\" />
+        <Folder Include="GeneratedFiles\Protos\" />
     </ItemGroup>
 
 </Project>
