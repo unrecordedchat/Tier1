@@ -15,5 +15,21 @@ namespace GrpcService.Services
         {
             await _client.CreateUserAsync(user);
         }
+        public async Task LoginUserAsync(string username, string password)
+        {
+            await _client.LoginUserAsync(new LoginRequest
+            {
+                Username = username,
+                Password = password
+            });
+        }
+        public async Task LoginUserByEmailAsync(string email, string password)
+        {
+            await _client.LoginUserByEmailAsync(new LoginRequest
+            {
+                Email = email,
+                Password = password
+            });
+        }
     }
 }
