@@ -1,4 +1,7 @@
+@using GrpcService
+@using GrpcService.Services
 @inherits LayoutComponentBase
+@inject UserClient UserClient
 @page "/login"
 <head>
     <link rel="stylesheet" href="Login.css"/>
@@ -54,11 +57,18 @@
 
     private void HandleLogin()
     {
-        // Login logic here
+        // Implement login logic here
     }
 
-    private void HandleSignup()
+    private async Task HandleSignup()
     {
-        // Signup logic here
+        var user = new UserEntity
+        {
+            Username = signupName,
+            Email = signupEmail,
+            PassHash = signupPassword
+        };
+
+        await UserClient.CreateUserAsync(user);
     }
 }
