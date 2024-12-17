@@ -1,0 +1,79 @@
+﻿@page "/"
+@using GrpcService
+@inherits LayoutComponentBase
+@using GrpcService.Services
+@inject UserClient UserClient
+@rendermode InteractiveServer
+
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="Login.css" />
+</head>
+
+<header class="text-center mb-4">
+    <h1 class="heading">Unrecorded Chat</h1>
+    <h3 class="title">Login & Sign Up</h3>
+</header>
+
+<div class="container">
+    <!-- Slider -->
+    <div class="slider" style="transform: @SliderPosition;"></div>
+
+    <!-- Buttons -->
+    <div class="btn-container">
+        <div class="btn-tab" @onclick="ShowLogin">Login</div>
+        <div class="btn-tab" @onclick="ShowSignup">Signup</div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-section" style="transform: @FormPosition;">
+        <!-- Login Form -->
+        <div class="form-container">
+            <h2>Login</h2>
+            <input type="email" class="form-control mb-3" placeholder="youremail@email.com" @bind="loginEmail" />
+            <input type="password" class="form-control mb-3" placeholder="Password" @bind="loginPassword" />
+            <button class="btn-submit w-100" @onclick="HandleLogin">Login</button>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form-container">
+            <h2>Signup</h2>
+            <input type="text" class="form-control mb-3" placeholder="Your Name" @bind="signupName" />
+            <input type="email" class="form-control mb-3" placeholder="Email" @bind="signupEmail" />
+            <input type="password" class="form-control mb-3" placeholder="Password" @bind="signupPassword" />
+            <input type="password" class="form-control mb-3" placeholder="Confirm Password" @bind="signupConfirmPassword" />
+            <button class="btn-submit w-100" @onclick="HandleSignup">Signup</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool isSignup = false;
+
+    private string loginEmail, loginPassword;
+    private string signupName, signupEmail, signupPassword, signupConfirmPassword;
+
+// Dynamic styles
+    private string SliderPosition => isSignup ? "translateX(100%)" : "translateX(0)";
+    private string FormPosition => isSignup ? "translateX(-50%)" : "translateX(0)";
+
+    private void ShowLogin() => isSignup = false;
+    private void ShowSignup() => isSignup = true;
+
+    private void HandleLogin()
+    {
+        
+    }
+
+    private async Task HandleSignup()
+    {
+        var user = new UserEntity
+        {
+            Username = signupName,
+            Email = signupEmail,
+            PassHash = signupPassword
+        };
+
+        await UserClient.CreateUserAsync(user);
+    }
+}
