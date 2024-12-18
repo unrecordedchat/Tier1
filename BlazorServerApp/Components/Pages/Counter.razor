@@ -15,17 +15,10 @@
 @code {
     private int currentCount = 0;
 
-    private async Task IncrementCount()
+    private Task IncrementCount()
     {
-        var user = new UserEntity
-        {
-            // Initialize the UserEntity properties as needed
-            Username = "User",
-            Email = "test",
-            PassHash = "test"
-        };
 
-        await UserClient.CreateUserAsync(user);
         currentCount++;
+        return Task.CompletedTask;
     }
 }

@@ -1,7 +1,10 @@
+using BlazorServerApp;
 using BlazorServerApp.Components;
 using Grpc.Net.Client;
 using GrpcService;
 using GrpcService.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,8 @@ builder.Services.AddSingleton(provider =>
     return channel;
 });
 builder.Services.AddSingleton<UserClient>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

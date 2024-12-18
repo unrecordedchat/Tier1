@@ -8,6 +8,8 @@
 
     <ItemGroup>
         <Protobuf Include="Protos\user.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Client,Server"/>
+        <Protobuf Include="Protos\message.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Client,Server"/>
+        <Protobuf Include="Protos\friendship.proto" OutputDir="GeneratedFiles" NameSpace="GrpcService" GrpcServices="Client,Server"/>
     </ItemGroup>
 
     <ItemGroup>
